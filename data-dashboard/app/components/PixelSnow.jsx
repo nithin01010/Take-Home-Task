@@ -1,3 +1,4 @@
+'use client'
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
   Color,
@@ -175,7 +176,7 @@ export default function PixelSnow({
   color = '#ffffff',
   flakeSize = 0.01,
   minFlakeSize = 1.25,
-  pixelResolution = 200,
+  pixelResolution = 600,
   speed = 1.25,
   depthFade = 8,
   farPlane = 20,
@@ -185,7 +186,9 @@ export default function PixelSnow({
   variant = 'square',
   direction = 125,
   className = '',
-  style = {}
+  // style = {}
+  style={position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }
+        
 }) {
   const containerRef = useRef(null);
   const animationRef = useRef(0);

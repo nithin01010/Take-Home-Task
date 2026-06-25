@@ -10,16 +10,16 @@ const DUMMY_COUNTRIES = [
 ];
 
 const Table = () => {
+    const headings = ["S.No", "Country", "Region", "Code", "View Details"]
+    
   return (
-    <div className="w-full max-w-4xl mx-auto overflow-hidden border border-gray-200 rounded-2xl shadow-sm bg-white">
-      <table className="w-full text-left border-collapse">
+    <div className="w-full max-w-4xl mx-auto overflow-x-auto border border-gray-200 rounded-2xl shadow-sm bg-white">
+      <table className="w-full min-w-[600px] text-left border-collapse">
         <thead className="border-b border-gray-200 bg-gray-50">
           <tr>
-            <th className="px-4 py-3 font-semibold text-gray-700 text-sm">S.No</th>
-            <th className="px-4 py-3 font-semibold text-gray-700 text-sm">Country</th>
-            <th className="px-4 py-3 font-semibold text-gray-700 text-sm">Region</th>
-            <th className="px-4 py-3 font-semibold text-gray-700 text-sm">Code</th>
-            <th className="px-4 py-3 font-semibold text-gray-700 text-sm">View Details</th>
+            {headings.map((heading) => (
+                <th key={heading} className="px-4 py-3 font-semibold text-gray-700 text-sm">{heading}</th>
+            ))}
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-100">

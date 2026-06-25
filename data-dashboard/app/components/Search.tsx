@@ -30,31 +30,34 @@ const search = () => {
         setTempSubRegion("All");
     };
 
+    // Regions 
+    const regions = ['Africa','Americas','Asia','Europe','Oceania']
+    const subRegions = ["Northern","Southern","Eastern","Western"]
+    
+    
+
+
     return (
         <div className="relative w-full max-w-4xl mx-auto p-4">
-            <div className="flex gap-2 items-center">
+            <div className="relative w-full flex items-center">
                 {/* Search Input */}
-                <div className="relative flex-1">
-                    <Search
-                        size={18}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                    />
-                    <input
-                        type="text"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Search countries..."
-                        className="w-full text-black rounded-xl border border-gray-300 bg-white py-3 pl-11 pr-4 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                    />
-                </div>
-
-                {/* Filter Button */}
+                <Search
+                    size={18}
+                    className="absolute left-4 text-gray-400 pointer-events-none"
+                />
+                <input
+                    type="text"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search countries..."
+                    className="w-full text-black rounded-xl border border-gray-300 bg-white py-3 pl-11 pr-12 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                />
+                {/* Filter Icon Button Inside Search Input */}
                 <button
-                    className="flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-5 py-3 shadow-sm transition hover:bg-gray-100 text-black font-medium"
+                    className="absolute right-3 p-1.5 text-gray-500 hover:bg-gray-100 rounded-lg transition"
                     onClick={showFilter ? () => setShowFilter(false) : handleOpenFilters}
                 >
                     <SlidersHorizontal size={18} />
-                    <span>Filters</span>
                 </button>
             </div>
 
@@ -80,11 +83,9 @@ const search = () => {
                             className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-black outline-none focus:border-blue-500 focus:bg-white transition"
                         >
                             <option value="All">All Regions</option>
-                            <option value="Africa">Africa</option>
-                            <option value="Americas">Americas</option>
-                            <option value="Asia">Asia</option>
-                            <option value="Europe">Europe</option>
-                            <option value="Oceania">Oceania</option>
+                            {regions.map((region) => (
+                                <option key={region} value={region}>{region}</option>
+                            ))}
                         </select>
                     </div>
 
@@ -98,10 +99,9 @@ const search = () => {
                             disabled={tempRegion === "All"}
                         >
                             <option>All</option>
-                            <option>Northern {tempRegion}</option>
-                            <option>Eastern {tempRegion}</option>
-                            <option>Western {tempRegion}</option>
-                            <option>Southern {tempRegion}</option>
+                            {subRegions.map((subRegion) => (
+                                <option key={subRegion} value={subRegion}>{subRegion}</option>
+                            ))}
                         </select>
                     </div>
 
