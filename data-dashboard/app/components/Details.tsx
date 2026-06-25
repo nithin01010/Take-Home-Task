@@ -91,7 +91,7 @@ const Details = async({code}: {code: string}) => {
                             <p className="text-xs font-medium text-muted-foreground mb-1.5">Neighboring Borders:</p>
                             <div className="flex flex-nowrap overflow-x-auto gap-2 pb-1.5 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-black [&::-webkit-scrollbar-thumb]:bg-white/40 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/60" style={{WebkitOverflowScrolling: 'touch', touchAction: 'pan-x'}}>
                                 {details.borders.map((border, index) => (
-                                    <span key={index} className="flex-shrink-0 bg-accent/10 text-accent text-xs px-2.5 py-1 rounded-full border border-accent/20">
+                                    <span key={index} className="flex-shrink-0 text-white bg-accent/10 text-accent text-xs px-2.5 py-1 rounded-full border border-accent/20">
                                        <Link href={`/country/${border.toLowerCase()}`}>
                                             {border}
                                        </Link> 
