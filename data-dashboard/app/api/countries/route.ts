@@ -6,7 +6,7 @@ export async function GET(request: Request) {
     try {
         const res = await fetch(`https://api.restcountries.com/countries/v5?${searchParams.toString()}`, {
             headers: {
-                Authorization: `Bearer ${process.env.REST_COUNTRIES_API_KEY || process.env.NEXT_PUBLIC_REST_COUNTRIES_API_KEY}`
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_REST_COUNTRIES_API_KEY || process.env.NEXT_PUBLIC_REST_COUNTRIES_API_KEY}`
             }
         });
         

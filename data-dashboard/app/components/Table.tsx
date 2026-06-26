@@ -58,10 +58,15 @@ const Table = () => {
             className="w-full max-w-4xl mx-auto max-h-[550px] overflow-y-auto overflow-x-auto border border-border/50 rounded-2xl shadow-2xl bg-card/30 backdrop-blur-md [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-black [&::-webkit-scrollbar-thumb]:bg-white/40 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/60"
         >
             <table className="w-full min-w-[600px] text-left border-collapse">
-                <thead className="border-b border-border/30 bg-muted/40 sticky top-0 z-20 backdrop-blur-md">
+                <thead className="border-b border-border/30">
                     <tr>
                         {headings.map((heading) => (
-                            <th key={heading} className="px-4 py-3.5 font-bold text-muted-foreground text-xs uppercase tracking-wider">{heading}</th>
+                            <th 
+                                key={heading} 
+                                className="sticky top-0 z-20 bg-card/90 backdrop-blur-md px-4 py-3.5 font-bold text-muted-foreground text-xs uppercase tracking-wider"
+                            >
+                                {heading}
+                            </th>
                         ))}
                     </tr>
                 </thead>
@@ -83,6 +88,15 @@ const Table = () => {
                             </td>
                         </tr>
                     )}
+                    {
+                        countries.length == 0 && !hasMore &&  (
+                            <tr>
+                            <td colSpan={headings.length} className="text-center py-4 text-xs text-muted-foreground animate-pulse">
+                                    No countries found...
+                                </td>
+                            </tr>
+                        )
+                    }
                 </tbody>
             </table>
         </div>
