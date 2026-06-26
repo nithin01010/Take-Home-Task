@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
   contain: layout style paint;
+  pointer-events: none;
 }
 
 .pixel-snow-container canvas {
